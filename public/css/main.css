@@ -1,0 +1,82 @@
+.member__profile {
+  width: 130px;
+  height: 130px;
+}
+
+.message__profile {
+  width: 80px;
+  height: 80px;
+}
+
+.message__body {
+  position: relative;
+  width: 95%;
+  /*max-width: 400px;*/
+  min-height: 80px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.message__user-name {
+  font-weight: bold;
+}
+
+.message__text {
+  
+}
+
+.message__time {
+  color: #787878;
+  text-align: right;
+}
+
+.message--received .message__body {
+  border-radius: 0 6px 6px 6px;
+  background-color: #e7e7e7;
+}
+
+.message--received .message__body:before {
+  position: absolute;
+  top: 0;
+  left: -10px;
+  content: " ";
+  border-width: 10px 0 0 10px;
+  border-style: solid;
+  border-color: #e7e7e7 transparent;
+}
+
+.message--sent .message__body {
+  border-radius: 6px 0 6px 6px;
+  background-color: #d9f3d8;
+}
+
+.message--sent .message__body:after {
+  position: absolute;
+  top: 0;
+  right: -10px;
+  content: " ";
+  border-width: 10px 10px 0 0;
+  border-style: solid;
+  border-color: #d9f3d8 transparent;
+}
+
+.mypage_box {
+    margin: 2em 0;
+    background: #f1f1f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+.mypage_box .box-title {
+    font-size: 1.2em;
+    background: #5fc2f5;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    letter-spacing: 0.05em;
+}
+.mypage_box p {
+    padding: 15px 20px;
+    margin: 0;
+    font-size: 5.0em;
+    text-align: center;
+}
