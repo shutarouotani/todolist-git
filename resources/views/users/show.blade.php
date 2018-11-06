@@ -12,7 +12,12 @@
                     <h3 class="panel-title">{{ $user->name }}</h3>
                 </div>
                 <div class="panel-body">
-                    <img class="media-object img-rounded img-responsive" src="/storage/{{$user->image_path}}" alt="">
+                    @if ( $user->image_path == 'noimage.png')
+                        <img class="media-object img-rounded img-responsive" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?s=200&r=pg&d=mp" alt="">
+                    @else
+                        <img class="media-object img-rounded img-responsive" src="{!! $user->image_path !!}" alt="">
+                    @endif
+                   
                 </div>
                 <div class="panel-footer">
                     {!! Form::open(['route' => 'upload.post', 'files' => true]) !!}

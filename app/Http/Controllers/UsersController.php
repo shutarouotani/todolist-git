@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\User;
 
+use Storage;
+
 class UsersController extends Controller
 {
     public function show($id)
@@ -37,28 +39,38 @@ class UsersController extends Controller
         ]);
 
         if ($request->file('file')->isValid([])) {
+            /*
             $filename = $request->file->store('public/');
-
             $user = User::find(auth()->id());
             $user->image_path = basename($filename);
+            $user->save();
+            */
+            //$filename = $request->file->getClientOriginalName();
+            //$path = $request->file('image')->storeAs('public', $filename);
+            //$contents = Storage::get('public/'.$filename);
+            
+            /*
+            $contents = file_get_contents($img_path);
+            Storage::disk('s3')->put($filename, $contents, 'public');
+            */
+            
+            // S3にアップロード
+            $path = Storage::disk('s3')->put('profiles', $request->file, 'public');
+            // S3アップロード後のURL取得
+            $url = Storage::disk('s3')->url($path);
+            
+            //ユーザ情報の更新
+            $user = User::find(auth()->id());
+            $user->image_path = $url;
             $user->save();
             
             return view('users.show', [
                 'user' => $user,
             ]);
-
-            //return redirect('/')->with('success', '保存しました。');
         } else {
             return view('users.show', [
                 'user' => $user,
             ]);
-            
-            /*
-            return redirect()
-                ->back()
-                ->withInput()
-                ->withErrors(['file' => '画像がアップロードされていないか不正なデータです。']);
-            */
         }
     }
 }

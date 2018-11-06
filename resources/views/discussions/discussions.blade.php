@@ -17,13 +17,21 @@
                 </div>
             </div>
             <div class="media-right">
-                <img class="media-object img-rounded message__profile" src="/storage/{{$user->image_path}}" alt="">
+                @if ( $user->image_path == 'noimage.png')
+                    <img class="media-object img-rounded message__profile" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?s=200&r=pg&d=mp" alt="">
+                @else
+                    <img class="media-object img-rounded message__profile" src="{!! $user->image_path !!}" alt="">
+                @endif
             </div>
         </li>
     @else
         <li class="media message--received">
             <div class="media-left">
-                <img class="media-object img-rounded message__profile" src="/storage/{{$user->image_path}}" alt="">
+                @if ( $user->image_path == 'noimage.png')
+                    <img class="media-object img-rounded message__profile" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?s=200&r=pg&d=mp" alt="">
+                @else
+                    <img class="media-object img-rounded message__profile" src="{!! $user->image_path !!}" alt="">
+                @endif
             </div>
             <div class="media-body">
                 <div class="message__body">
