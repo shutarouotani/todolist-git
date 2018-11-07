@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="media-right">
-                @if ( $user->image_path == 'noimage.png')
+                @if ( $user->image_path == null)
                     <img class="media-object img-rounded message__profile" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?s=200&r=pg&d=mp" alt="">
                 @else
                     <img class="media-object img-rounded message__profile" src="{!! $user->image_path !!}" alt="">
@@ -27,7 +27,7 @@
     @else
         <li class="media message--received">
             <div class="media-left">
-                @if ( $user->image_path == 'noimage.png')
+                @if ( $user->image_path == null)
                     <img class="media-object img-rounded message__profile" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?s=200&r=pg&d=mp" alt="">
                 @else
                     <img class="media-object img-rounded message__profile" src="{!! $user->image_path !!}" alt="">

@@ -8,7 +8,7 @@
 <br>
 <ul class="media-list list-inline">
 @foreach ($members as $member)
-    @if ( $member->image_path == 'noimage.png')
+    @if ( $member->image_path == null)
         <li><img class="media-object img-rounded member__profile" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?s=200&r=pg&d=mp" alt="">{!! $member->name !!}</li>
     @else
         <li><img class="media-object img-rounded member__profile" src="{!! $member->image_path !!}" alt="">{!! $member->name !!}</li>

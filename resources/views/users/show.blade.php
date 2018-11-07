@@ -12,7 +12,7 @@
                     <h3 class="panel-title">{{ $user->name }}</h3>
                 </div>
                 <div class="panel-body">
-                    @if ( $user->image_path == 'noimage.png')
+                    @if ( $user->image_path == null)
                         <img class="media-object img-rounded img-responsive" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?s=200&r=pg&d=mp" alt="">
                     @else
                         <img class="media-object img-rounded img-responsive" src="{!! $user->image_path !!}" alt="">
