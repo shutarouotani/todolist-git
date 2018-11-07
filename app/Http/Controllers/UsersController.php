@@ -39,20 +39,6 @@ class UsersController extends Controller
         ]);
 
         if ($request->file('file')->isValid([])) {
-            /*
-            $filename = $request->file->store('public/');
-            $user = User::find(auth()->id());
-            $user->image_path = basename($filename);
-            $user->save();
-            */
-            //$filename = $request->file->getClientOriginalName();
-            //$path = $request->file('image')->storeAs('public', $filename);
-            //$contents = Storage::get('public/'.$filename);
-            
-            /*
-            $contents = file_get_contents($img_path);
-            Storage::disk('s3')->put($filename, $contents, 'public');
-            */
             
             // S3にアップロード
             $path = Storage::disk('s3')->put('profiles', $request->file, 'public');

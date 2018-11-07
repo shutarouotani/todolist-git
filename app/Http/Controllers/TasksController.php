@@ -42,7 +42,7 @@ class TasksController extends Controller
                 $tasks = $tasks->where('due_date', '<=', $request->due_date_to);
             };
             
-            $tasks = $tasks->orderBy('created_at', 'desc')->paginate(10);
+            $tasks = $tasks->orderBy('created_at', 'asc')->paginate(10);
 
             $data = [
                 'user' => $user,
@@ -114,7 +114,7 @@ class TasksController extends Controller
     public function discussions($id)
     {
         $task = Task::find($id);
-        $discussions = $task->discussions()->paginate(10);
+        $discussions = $task->discussions()->orderBy('created_at', 'asc')->paginate(10);
 
         $data = [
             //'user' => $user,

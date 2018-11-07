@@ -1,4 +1,4 @@
-<?php $subtasks = $task->subtasks()->orderBy('created_at', 'desc')->paginate(10); ?>
+<?php $subtasks = $task->subtasks()->orderBy('created_at', 'asc')->paginate(10); ?>
 @if (count($subtasks) > 0)
     <table class="table table-striped">
         <thread>
